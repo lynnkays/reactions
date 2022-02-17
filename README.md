@@ -16,7 +16,7 @@ List of Available Animations:
 - Flash 
 - Rotate
 
-Animation Qualties
+Animation Qualities:
 - In
 - Out
 - InPlace
