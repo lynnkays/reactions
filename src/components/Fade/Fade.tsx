@@ -1,5 +1,4 @@
 import React from 'react'
-import { FadeProps } from './Fade.types'
 
 interface Props {
     label?: string;
