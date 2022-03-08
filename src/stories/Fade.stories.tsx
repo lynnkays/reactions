@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "../components/Fade/Fade";
+import { Fade } from "../components/Fade";
 
 export default {
   title: "Fade",
@@ -16,4 +16,6 @@ const Template = ({ ...args }) => (
 );
 
 export const fade = Template.bind({});
-fade.args = {};
+fade.args = {
+  duration: "2s"
+};

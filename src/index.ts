@@ -1,2 +1,2 @@
-import { Fade } from './components/Fade/Fade'
+import { Fade } from './components/Fade'
 export {Fade}
