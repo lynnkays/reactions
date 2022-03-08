@@ -1,13 +1,23 @@
-import React from 'react'
+import styled, { keyframes } from "styled-components";
 
-interface Props {
-    label?: string;
+interface FadeProps {
+  duration?: Number;
+  delay?: Number;
+  iterationCount?: Number;
+  direction?: String;
 }
 
-export const Fade: React.FC<Props> = ({label}) => {
-    return (
-        <div>
-            <button>{label}</button>
-        </div>
-    )
-}
+const animateFade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+}`;
+
+export const Fade = styled.div<FadeProps>`
+  display: inline-block;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+  animation: ${animateFade} 2s infinite;
+`;

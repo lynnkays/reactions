@@ -1,11 +1,19 @@
 import React from "react";
-import { Fade } from "..";
+import { Fade } from "../components/Fade/Fade";
 
 export default {
   title: "Fade",
   component: Fade,
+  argTypes: {
+    numChildren: { type: "number", defaultValue: 1 },
+  },
 };
 
-export const Basic = () => <Fade label="Basic" />;
+const Template = ({ ...args }) => (
+  <Fade {...args}>
+    <div style={{ backgroundColor: "pink" }}>Hi</div>
+  </Fade>
+);
 
-export const Second = () => <Fade label="Second" />;
+export const fade = Template.bind({});
+fade.args = {};
