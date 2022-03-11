@@ -1,12 +1,10 @@
 import React from "react";
-import { Fade } from "../components/Fade";
+import { Fade } from "../components/Fade/Fade";
 
 export default {
   title: "Fade",
   component: Fade,
-  argTypes: {
-    numChildren: { type: "number", defaultValue: 1 },
-  },
+  argTypes: {},
 };
 
 const Template = ({ ...args }) => (
@@ -17,5 +15,5 @@ const Template = ({ ...args }) => (
 
 export const fade = Template.bind({});
 fade.args = {
-  duration: "2s"
+  duration: "medium",
 };
