@@ -1,2 +1,4 @@
-import { Fade } from './components/Fade'
-export {Fade}
+import { Fade } from "./components/Fade/Fade";
+import { AnimationStyled } from "./components/Animation/Animation.styles";
+
+export { Fade, AnimationStyled };

@@ -17,7 +17,7 @@ export const Fade: FC<AnimationProps> = ({
   duration = "medium",
   timingFunction = "linear",
   delay = 0,
-  iterationCount = "infinite",
+  iterationCount = 1,
   direction = "normal",
   fillMode = "none",
   ...props
