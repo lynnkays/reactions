@@ -1,17 +1,27 @@
 import React, { FC } from "react";
-import styled, { keyframes } from "styled-components";
-import { FadeProps } from "./Fade.types";
+import styled, { css, keyframes } from "styled-components";
+import { FadeProps } from "../Fade/Fade.types";
+import { SlideProps } from "./Slide.types";
 
-export const FadeAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-}`;
+export const SlideInAnimation = keyframes`
+    100% { transform: translateX(0%); }
+`;
 
-export const FadeStyled = styled.div<FadeProps>`
-  animation-name: ${FadeAnimation};
+export const SlideOutAnimation = keyframes`
+      0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+`;
+
+export const SlideStyled = styled.div<SlideProps>`
+  transform: translateX(-100%);
+  animation-name: ${({ slideInOut }) =>
+    slideInOut === "in"
+      ? css`
+          ${SlideInAnimation}
+        `
+      : css`
+          ${SlideOutAnimation}
+        `};
   animation-duration: ${({ duration }) =>
     duration === "short" ? "200ms" : duration === "medium" ? "500ms" : "1s"};
   animation-timing-function: ${({ timingFunction }) => timingFunction};
@@ -21,8 +31,9 @@ export const FadeStyled = styled.div<FadeProps>`
   animation-fill-mode: ${({ fillMode }) => fillMode};
 `;
 
-export const Fade: FC<FadeProps> = ({
+export const Slide: FC<SlideProps> = ({
   children,
+  slideInOut = "in",
   duration = "medium",
   timingFunction = "linear",
   delay = 0,
@@ -32,7 +43,8 @@ export const Fade: FC<FadeProps> = ({
   ...props
 }) => {
   return (
-    <FadeStyled
+    <SlideStyled
+      slideInOut={slideInOut}
       duration={duration}
       timingFunction={timingFunction}
       delay={delay}
@@ -42,6 +54,6 @@ export const Fade: FC<FadeProps> = ({
       {...props}
     >
       {children}
-    </FadeStyled>
+    </SlideStyled>
   );
 };

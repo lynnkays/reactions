@@ -53,8 +53,8 @@ FadeOut.args = {
   fillMode: "backwards",
 };
 
-export const Blink = Template.bind({});
-Blink.args = {
+export const FadeInOut = Template.bind({});
+FadeInOut.args = {
   timingFunction: "ease-in-out",
   duration: "long",
   delay: 1,

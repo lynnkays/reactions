@@ -1,7 +1,6 @@
 import { Keyframes } from "styled-components";
 
 export interface FadeProps {
-  animName?: Keyframes;
   duration?: "short" | "medium" | "long";
   timingFunction?: "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out";
   delay?: number;

@@ -1,7 +1,5 @@
-import { Keyframes, StyledComponent, StyledFunction } from "styled-components";
-
-export interface AnimationProps {
-  animName?: Keyframes | StyledComponent<"div", any, {}, never>;
+export interface SlideProps {
+  slideInOut?: "in" | "out";
   duration?: "short" | "medium" | "long";
   timingFunction?: "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out";
   delay?: number;
