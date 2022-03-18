@@ -1,9 +1,8 @@
 import React, { FC } from "react";
-import { keyframes } from "styled-components";
-import { AnimationProps } from "../Animation/Animation.types";
-import { AnimationStyled } from "../Animation/Animation.styles";
+import styled, { keyframes } from "styled-components";
+import { FadeProps } from "./Fade.types";
 
-export const FadeStyled = keyframes`
+export const FadeAnimation = keyframes`
   from {
     opacity: 0;
   }
@@ -11,9 +10,20 @@ export const FadeStyled = keyframes`
     opacity: 1;
 }`;
 
-export const Fade: FC<AnimationProps> = ({
+export const FadeStyled = styled.div<FadeProps>`
+  animation-name: ${FadeAnimation};
+  animation-duration: ${({ duration }) =>
+    duration === "short" ? "200ms" : duration === "medium" ? "500ms" : "1s"};
+  animation-timing-function: ${({ timingFunction }) => timingFunction};
+  animation-delay: ${({ delay }) => delay}ms;
+  animation-iteration-count: ${({ iterationCount }) => iterationCount};
+  animation-direction: ${({ direction }) => direction};
+  animation-fill-mode: ${({ fillMode }) => fillMode};
+`;
+
+export const Fade: FC<FadeProps> = ({
   children,
-  animName = "Fade",
+  animName,
   duration = "medium",
   timingFunction = "linear",
   delay = 0,
@@ -23,8 +33,7 @@ export const Fade: FC<AnimationProps> = ({
   ...props
 }) => {
   return (
-    <AnimationStyled
-      animName={FadeStyled}
+    <FadeStyled
       duration={duration}
       timingFunction={timingFunction}
       delay={delay}
@@ -34,6 +43,6 @@ export const Fade: FC<AnimationProps> = ({
       {...props}
     >
       {children}
-    </AnimationStyled>
+    </FadeStyled>
   );
 };
